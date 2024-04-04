@@ -12,6 +12,7 @@ rootDirectory = postman/collections
 files[] = {"id":"743470-41950b6e-c3fd-4e16-b560-c72720a712e9","path":"Caja-API.json","metaData":{}}
 files[] = {"id":"743470-c89b071f-71ff-4ddb-84ea-fe7129800029","path":"Caja-STUB.json","metaData":{}}
 files[] = {"id":"743470-185c532e-f59c-4899-bb5b-3b5441bff21a","path":"Caja-WMS.json","metaData":{}}
+files[] = {"id":"743470-64b2d5de-0edf-440a-8c54-46ea1da039be","path":"Test.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
