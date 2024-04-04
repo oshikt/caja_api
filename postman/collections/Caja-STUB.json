@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "c89b071f-71ff-4ddb-84ea-fe7129800029",
+		"name": "Caja-STUB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "743470-c89b071f-71ff-4ddb-84ea-fe7129800029"
+	},
+	"item": [
+		{
+			"name": "Update Bin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aa358297-4ba9-48a0-84c2-95cb27fd83fc",
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body is null\", function () {\r",
+							"    const responseData = xml2Json(pm.response.text());\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "00ca0c8d-50cb-4f23-8f9e-916df978b4bd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"bin\":{\r\n\t\r\n            \"binCode\": \"clqTcMZoEE\",\r\n            \"x\": 15945,\r\n            \"y\": 23719,\r\n            \"z\": 529,\r\n            \"binTypeId\": \"BIN300\",\r\n            \"accessible\": true,\r\n            \"isAvailable\": true,\r\n            \"totalSlots\": 0,\r\n            \"binSKUs\": [\r\n                {\r\n                    \"binSKU\": \"UdFnMgdCqK\",\r\n                    \"binQty\": 10000,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 10000,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"MGIjpRFGfO\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"TsoNOpomUL\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"TExsnyvBvp\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"11313\",\r\n                        \"994183\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1699439292012,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                },\r\n                {\r\n                    \"binSKU\": \"KBPPBilsHo\",\r\n                    \"binQty\": 10000,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 10000,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"iTQgcETJNN\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"LmRxPeyfGJ\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"DWgLCikudB\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"643473\",\r\n                        \"665564\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1699439292014,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                },\r\n                {\r\n                    \"binSKU\": \"PsgKXXzzUn\",\r\n                    \"binQty\": 10000,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 10000,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"GhrajryZCZ\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"KnNURnTFUG\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"hgCIJzfleb\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"119396\",\r\n                        \"624898\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1699439292016,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                }\r\n            ],\r\n            \"frameCode\": \"ST-3-10-1\",\r\n            \"lastCycleCount\": 0,\r\n            \"pickRequests\": null,\r\n            \"fillRatio\": 1.0,\r\n            \"clientId\": \"testClient\",\r\n            \"isDeleted\": false,\r\n            \"onPallet\": false,\r\n            \"binCreation\": 1699439327820,\r\n            \"binUpdate\": 1699439327820,\r\n            \"status\": \"READY\",\r\n            \"framesList\": null,\r\n            \"lockedForRecall\": false,\r\n            \"consolidationRank\": 100,\r\n            \"checkedForConsolidation\": false,\r\n            \"frameAvailability\": true,\r\n            \"zoneName\": \"lowerStorageZone0\"\r\n        }\r\n\t\t\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/stub/bins/clqTcMZoEE\n",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"stub",
+						"bins",
+						"clqTcMZoEE\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Bin + Notifications",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d6a90551-f1b3-4def-bf74-544fbc250734",
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body is null\", function () {\r",
+							"    const responseData = xml2Json(pm.response.text());\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "38400a8d-6a31-4dbd-b148-f2496179be35",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"bin\":{\r\n            \"binCode\": \"WtQdojOuZX\",\r\n            \"x\": 63605,\r\n            \"y\": 30596,\r\n            \"z\": 1461,\r\n            \"binTypeId\": \"BIN300\",\r\n            \"accessible\": true,\r\n            \"isAvailable\": true,\r\n            \"totalSlots\": 0,\r\n            \"binSKUs\": [\r\n                {\r\n                    \"binSKU\": \"FoyktaGvEj\",\r\n                    \"binQty\": 100,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 100,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"gbuPNJHpfH\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"ZhXedfkTnO\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"GcavrSgkYm\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"946756\",\r\n                        \"890619\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1710930431566,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                },\r\n                {\r\n                    \"binSKU\": \"nTVeERAISA\",\r\n                    \"binQty\": 100,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 100,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"RhasNveKPX\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"UyVAzUWPSS\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"JYtIrJTFiQ\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"976491\",\r\n                        \"455939\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1710930431565,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                }\r\n            ],\r\n            \"frameCode\": \"RE-1-9-3\",\r\n            \"lastCycleCount\": 0,\r\n            \"pickRequests\": null,\r\n            \"fillRatio\": 1.0,\r\n            \"clientId\": \"testClient\",\r\n            \"isDeleted\": false,\r\n            \"onPallet\": false,\r\n            \"binCreation\": 1710930431584,\r\n            \"binUpdate\": 1710930431584,\r\n            \"status\": \"READY\",\r\n            \"framesList\": null,\r\n            \"lockedForRecall\": false,\r\n            \"consolidationRank\": 100,\r\n            \"checkedForConsolidation\": false,\r\n            \"frameAvailability\": true,\r\n            \"zoneName\": \"REP01\"\r\n        },\r\n  \"binNotifications\": [\r\n    {\r\n      \"id\": 0,\r\n      \"binId\": 4339,\r\n      \"reason\": \"SKU_MISMATCH\",\r\n      \"affectedSku\": \"string\",\r\n      \"affectedBatchId\": \"string\",\r\n      \"orderId\": \"string\",\r\n      \"toteId\": \"string\",\r\n      \"skuQuntity\": 0,\r\n      \"skuQuantityDiff\": 0,\r\n      \"creationTime\": 0,\r\n      \"syncTime\": 0\r\n    }\r\n  ]\r\n}\r\n\t\t",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/stub/bins/WtQdojOuZX\n",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"stub",
+						"bins",
+						"WtQdojOuZX\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Bin Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "459812d1-7ea7-456a-9104-aa2932a5a1f5",
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body is null\", function () {\r",
+							"    const responseData = xml2Json(pm.response.text());\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "fa48f2bd-810c-4a1c-80db-34dca369c950",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"bin\":{\r\n\t\r\n            \"binCode\": \"clqTcMZoEE\",\r\n            \"x\": 15945,\r\n            \"y\": 23719,\r\n            \"z\": 529,\r\n            \"binTypeId\": \"BIN300\",\r\n            \"accessible\": true,\r\n            \"isAvailable\": true,\r\n            \"totalSlots\": 0,\r\n            \"binSKUs\": [\r\n                {\r\n                    \"binSKU\": \"UdFnMgdCqK\",\r\n                    \"binQty\": 10000,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 10000,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"MGIjpRFGfO\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"TsoNOpomUL\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"TExsnyvBvp\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"11313\",\r\n                        \"994183\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1699439292012,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                },\r\n                {\r\n                    \"binSKU\": \"KBPPBilsHo\",\r\n                    \"binQty\": 10000,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 10000,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"iTQgcETJNN\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"LmRxPeyfGJ\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"DWgLCikudB\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"643473\",\r\n                        \"665564\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1699439292014,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                },\r\n                {\r\n                    \"binSKU\": \"PsgKXXzzUn\",\r\n                    \"binQty\": 10000,\r\n                    \"binReservedQty\": 0,\r\n                    \"binOriginalQty\": 10000,\r\n                    \"metaData\": [\r\n                        {\r\n                            \"key\": \"Style\",\r\n                            \"value\": \"GhrajryZCZ\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Size\",\r\n                            \"value\": \"KnNURnTFUG\"\r\n                        },\r\n                        {\r\n                            \"key\": \"Color\",\r\n                            \"value\": \"hgCIJzfleb\"\r\n                        }\r\n                    ],\r\n                    \"upcs\": [\r\n                        \"119396\",\r\n                        \"624898\"\r\n                    ],\r\n                    \"batchId\": null,\r\n                    \"entryDate\": 1699439292016,\r\n                    \"expirationDate\": 0,\r\n                    \"suspended\": false,\r\n                    \"tagId\": null,\r\n                    \"slots\": [],\r\n                    \"lockedForRecall\": false,\r\n                    \"name\": null,\r\n                    \"description\": null,\r\n                    \"imageurl\": null\r\n                }\r\n            ],\r\n            \"frameCode\": \"ST-3-10-1\",\r\n            \"lastCycleCount\": 0,\r\n            \"pickRequests\": null,\r\n            \"fillRatio\": 1.0,\r\n            \"clientId\": \"testClient\",\r\n            \"isDeleted\": false,\r\n            \"onPallet\": false,\r\n            \"binCreation\": 1699439327820,\r\n            \"binUpdate\": 1699439327820,\r\n            \"status\": \"READY\",\r\n            \"framesList\": null,\r\n            \"lockedForRecall\": false,\r\n            \"consolidationRank\": 100,\r\n            \"checkedForConsolidation\": false,\r\n            \"frameAvailability\": true,\r\n            \"zoneName\": \"lowerStorageZone0\"\r\n        }\r\n\t\t\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/stub/bins/clqTcMZoEE\n",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"stub",
+						"bins",
+						"clqTcMZoEE\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Bin Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "750700de-15fc-4d6b-ba59-3ade1d497f36",
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body is null\", function () {\r",
+							"    const responseData = xml2Json(pm.response.text());\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f0fca400-bd42-4e3f-bd4c-ed1b14c062dd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"bin\": {\r\n   \r\n    \r\n   \r\n  },\r\n  \"binNotifications\": [\r\n    {\r\n      \"id\": 0,\r\n      \"binId\": 0\r\n      //,\"reason\": \"SKU_MISMATCH\"\r\n      \r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/stub/bins/\n",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"stub",
+						"bins",
+						"\n"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

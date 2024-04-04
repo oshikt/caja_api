@@ -1,0 +1,1710 @@
+{
+	"info": {
+		"_postman_id": "41950b6e-c3fd-4e16-b560-c72720a712e9",
+		"name": "Caja-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "743470-41950b6e-c3fd-4e16-b560-c72720a712e9"
+	},
+	"item": [
+		{
+			"name": "https://env1.dev.caja.cloud/admin/users/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8e1d47c8-a9ab-47e2-8081-5bef73ff1e9f",
+						"exec": [
+							"console.log(pm.response.text());\r",
+							"let responseBodyJSON = JSON.parse(pm.response.text());\r",
+							"pm.environment.set(\"access_token_id\", responseBodyJSON.access_token_id);\r",
+							"pm.globals.set(\"access_token_id\", responseBodyJSON.access_token_id);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1acafb71-d83e-4752-b206-2884f746baa2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userName\":\"oshikt\",\r\n   \"userPassword\":\"oshikt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/users/login",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get bins",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "669a13f3-20b7-492f-9283-e28f9aa6e27c",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "cf5c2033-5804-4118-963b-b2ac73434459",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/bins/all",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"bins",
+						"all"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get bin types",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06a87a13-ccc8-4fde-a0a2-29f18f873f38",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "6de095d2-c331-4e45-8069-f98cdffb58c7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/bins/types?pageNum=0&pageSize=25",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"bins",
+						"types"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						}
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cbd09e23-e334-4140-9cbc-8c4eacafe557",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "6060abb0-67af-4532-9ab0-94e5850939f3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/accounts",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"accounts"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all DataConsistency messages bound to Bins",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a904dc8a-f5fa-46f8-8c19-2182d1a0d826",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "4dd0e065-bb89-4427-a631-2ba6b3ded961",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/bins/consistency/errors",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"bins",
+						"consistency",
+						"errors"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "get bins who has status of NOT_IN_WAREHOUSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1fefa66-a962-41a0-b187-a2f22c0d7138",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a7eef92f-69f8-43f3-87d1-a89327b9a188",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/bins/notInWarehouse",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"bins",
+						"notInWarehouse"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get bins types by storage types resource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "385b5460-914e-4343-97bc-55a4da42e14b",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "7eb747cd-599f-401d-af3c-507700935229",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/bins/types/storageTypes",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"bins",
+						"types",
+						"storageTypes"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new frame Type - Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44a9fd27-b079-46ba-b657-20021ce7f62d",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "2fda216e-3b9f-43b0-87fe-e4612ae8460d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"frameTypeTest\",\r\n   \"description\": \"For regular bin\",\r\n   \"depth\": 630,\r\n   \"width\": 400,\r\n   \"height\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/frames/types?pageNum=0&pageSize=25",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"frames",
+						"types"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						}
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all frame types",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9f0324d9-0f8e-48af-afb1-82f6fd881e4c",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"var frameTypeId = pm.response.json().frameTypes[4].id;\r",
+							"var description = pm.response.json().frameTypes[0].description;\r",
+							"pm.environment.set(\"frameTypeId\", frameTypeId);\r",
+							"pm.environment.set(\"description\", description);\r",
+							"pm.globals.set(\"frameTypeId\", frameTypeId);\r",
+							"setTimeout(() => {}, 2000);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "77c41e0e-d1c8-49f8-a78a-5ff1f32738b3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/frames/types?pageNum=0&pageSize=25",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"frames",
+						"types"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						}
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete frame Type - Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c54e9e6a-7094-4ea8-969d-391c973ef455",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "9d09e0c0-f610-45d1-bc17-0a3489dbcbb6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/frames/types/{{frameTypeId}}",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"frames",
+						"types",
+						"{{frameTypeId}}"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get frames avaialability",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25769709-eeba-4135-bed0-8d236e0144cf",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "24f8d6a4-0f9d-408c-9261-e4857988b9e0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/frames/availability",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"frames",
+						"availability"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get inaccessible frames",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a632ec1f-e62d-41f3-8e0b-cdc236930e4b",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a43e4a26-b679-43ce-836c-0a766f79bb3c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/frames/inaccessible?pageNum=0&pageSize=25",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"frames",
+						"inaccessible"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						}
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get putwall controllers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f205f85-045d-4cb9-92a4-81e5d18851a7",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "e173f58c-7bc2-4581-b5df-b60ed424d2d6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/putWallControllers",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"putWallControllers"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all running jobs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42be2e60-95f1-4d1b-a1c8-d303cb1c12d8",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "b039609a-ed9a-4613-b453-163f7c8c3093",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/jobs",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"jobs"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all machine models",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4cc62fb4-fc47-4720-ad96-cd31d79e2e81",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a9068ad4-c4f9-4478-b083-1bc30a97d124",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/jobs",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"jobs"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all machines",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8e61387c-f736-437a-aba0-c738b659d1d8",
+						"exec": [
+							"// Fixed syntax for accessing machineId\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"var machineId = pm.response.json().machinesList[0].id;\r",
+							"pm.environment.set(\"machineId\", machineId);\r",
+							"pm.globals.set(\"machineId\", machineId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "2fdaa7a9-384d-4f32-8596-99857da99fdb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/machines?pageNum=0&pageSize=25&withMissions=true&includeBin=false",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"machines"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						},
+						{
+							"key": "withMissions",
+							"value": "true"
+						},
+						{
+							"key": "includeBin",
+							"value": "false"
+						}
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Inject Error - urgent maintenance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb3084c4-4307-4d5a-b15b-b8c96f06f996",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "629c4d36-a032-4655-b22f-d51625e8abaf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"errorList\": [\r\n    {\r\n      \"name\": \"Must go to maintenance\",\r\n      \"description\": \"Oshik error injection\",\r\n      \"group\": \"urgent_maintenance_needed\",\r\n      \"createdOn\": 0,\r\n      \"metaDataJson\": \"string\"\r\n    }\r\n  ],\r\n  \"numberOfSeconds\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/machines/{{machineId}}/injectErrors",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"machines",
+						"{{machineId}}",
+						"injectErrors"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove from WareHouse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc24d9f9-0988-4905-9488-de7141b76f51",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "64704243-f4b4-434d-ac5f-58e23f70d419",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/machines/{{machineId}}/removedFromWarehouse",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"machines",
+						"{{machineId}}",
+						"removedFromWarehouse"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all machine in maintenance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d519b914-dde0-4614-946c-7b93327e2b56",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "6923296b-c480-43cd-b366-caffc775d604",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/machines/maintenance/MaintenanceZone01_queue",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"machines",
+						"maintenance",
+						"MaintenanceZone01_queue"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all machines Without missions and bins",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48fdd154-c925-4520-9bc2-f4ee437c74e5",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "5ffe3a2f-1645-40f9-b963-8e645abec038",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/machines?pageNum=0&pageSize=25&withMissions=false&includeBin=false",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"machines"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						},
+						{
+							"key": "withMissions",
+							"value": "false"
+						},
+						{
+							"key": "includeBin",
+							"value": "false"
+						}
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all machines With missions and bins",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7d8f8851-5d44-4b01-bb8b-18fcf8597dc3",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "0c931000-27e5-4a67-8811-2157eaa2cfd7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/machines?pageNum=0&pageSize=25&withMissions=true&includeBin=true'",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"machines"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "25"
+						},
+						{
+							"key": "withMissions",
+							"value": "true"
+						},
+						{
+							"key": "includeBin",
+							"value": "true'"
+						}
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all acounts ID's",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "381a8f00-9144-4435-8a56-8491d604f472",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"\r",
+							"var accountId = pm.response.json().modelList[1].externalId;\r",
+							"pm.environment.set(\"accountId\", accountId);\r",
+							"pm.globals.set(\"accountId\", accountId);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "3caf6ccc-117f-47fa-a6c4-fd96c1f3ef82",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/accounts",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"accounts"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new account resourse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb5f8696-7ec8-4e14-98e4-78f44e94b7a6",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1769a8f1-d3b4-4c27-ac4b-ecfe5e3f5733",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"externalId\": \"NewClient\",\r\n  \"name\": \"Oshik_Account_test\",\r\n  \"cycleCountEnabled\": false,\r\n  \"cycleCountPeriods\": \"QUARTER\",\r\n  \"minCycleCountPercentage\": 10,\r\n  \"splitToteHtmlTemplate\": \"NO\",\r\n  \"orderCompleteTemplate\": \"Maybe\",\r\n  \"amountForConsolidation\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/accounts",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"accounts"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove all machines",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c89b7bf-52d3-4e38-b965-a2642b504f50",
+						"exec": [
+							"pm.test('Check status code', () => {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 404])\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a7ec8cf2-f1f8-4245-9e27-df47ed80a03c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/machines/removeAll",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"machines",
+						"removeAll"
+					]
+				},
+				"description": "Login"
+			},
+			"response": []
+		},
+		{
+			"name": "State",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feccca12-1b34-4153-b79e-1e7893679a92",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"var state = pm.response.json().state;\r",
+							"pm.environment.set(\"state\", state);\r",
+							"console.log(pm.environment.get('state'));\r",
+							"pm.test(\"State of WH is either STOPPED or ACTIVE\", function () {\r",
+							"    pm.expect(pm.environment.get('state')).to.be.oneOf(['STOPPED', 'ACTIVE']);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "c166a91e-25a7-4394-80de-9c496ead356c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "host",
+						"value": "env1.dev.caja.cloud"
+					},
+					{
+						"key": "connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"99\", \"Google Chrome\";v=\"121\", \"Chromium\";v=\"121\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer 1cf26b50-a4da-4944-ab6b-adad9c2a6e11"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://env1.dev.caja.cloud/"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "accept-language",
+						"value": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "x-postman-captr",
+						"value": "552343"
+					}
+				],
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/admin/warehouse/activity/state",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"admin",
+						"warehouse",
+						"activity",
+						"state"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token_id}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "03ddd559-a22d-4caf-b319-9f0d0dfd89f0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "86c9f932-f0f5-4ada-911c-9c78dbe8c16b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d986ba75-941f-4c29-913e-1a12dfadd7c5",
+			"key": "access_token_id",
+			"value": ""
+		},
+		{
+			"id": "8a9052a1-6bb3-4ea5-9328-c06f7262a9d1",
+			"key": "frame_type_id",
+			"value": ""
+		}
+	]
+}

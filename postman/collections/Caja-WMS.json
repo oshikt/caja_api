@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "185c532e-f59c-4899-bb5b-3b5441bff21a",
+		"name": "Caja-WMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "743470-185c532e-f59c-4899-bb5b-3b5441bff21a"
+	},
+	"item": [
+		{
+			"name": "frames/ST-28-28-2/bin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8043ec0-dcff-415d-88a6-3ebdfb45b67c",
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Bin coordinates (x, y, z) are non-negative integers\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.x).to.be.a('number').and.to.be.at.least(0);\r",
+							"    pm.expect(responseData.y).to.be.a('number').and.to.be.at.least(0);\r",
+							"    pm.expect(responseData.z).to.be.a('number').and.to.be.at.least(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"BinSKU array is present and contains the expected number of elements\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.have.property('binSKUs').that.is.an('array');\r",
+							"    pm.expect(responseData.binSKUs).to.have.lengthOf(10);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"BinCode is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.have.property('binCode').that.is.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "72658a11-4485-4d24-9b6e-4a4db322de2b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/wms/frames/ST-28-28-2/bin",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"wms",
+						"frames",
+						"ST-28-28-2",
+						"bin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/bins/AQUsGAiohX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "89eb6b0a-8c5d-428a-b324-5a38d6bbf5ee",
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content type is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"BinSKUs array is present and contains expected number of elements\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.binSKUs).to.exist.and.to.be.an('array');\r",
+							"    pm.expect(responseData.binSKUs).to.have.lengthOf(3);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Bin quantity should exist and be a number\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.binSKUs).to.be.an('array');\r",
+							"    responseData.binSKUs.forEach(function(binSKU) {\r",
+							"        pm.expect(binSKU.binQty).to.exist.and.to.be.a('number');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "36ae55a5-07c2-4daa-ab83-971642e344d1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/wms/bins/AQUsGAiohX",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"wms",
+						"bins",
+						"AQUsGAiohX"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update bin type - BIN300",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a710e6e-170a-4c89-803f-e371842a2a45",
+						"exec": [
+							"pm.test(\"Response status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is of type XML\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response does not contain null\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.include(\"null\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "ce7eb7b8-76ea-4e04-9300-e7387a6b8cf7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"BIN300\",\r\n  \"description\": \"for bin height 30 cm\",\r\n  \"depth\": 600,\r\n  \"width\": 400,\r\n  \"height\": 300,\r\n  \"urgent\": true,\r\n  \"imageUrl\": null,\r\n  \"primaryFrameType\": \"frameType300\",\r\n  \"secondaryFrameTypes\": [\r\n    \"inboundFrameType400\",\r\n    \"pickingFrameType500\"\r\n  ],\r\n  \"barcodePrefixIdentifier\": null\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/wms/bins/types/BIN300",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"wms",
+						"bins",
+						"types",
+						"BIN300"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update bin type - BIN300 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c4e01c1-c031-4acb-a6d6-70a7712fbb59",
+						"exec": [
+							"pm.test(\"Response status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response does not contain null\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.include(\"null\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "ea961d1c-19a2-470f-b76b-f11573ba0825",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"BIN300\",\r\n  \"description\": \"for bin height 30 cm\",\r\n  \"depth\": 600,\r\n  \"width\": 400,\r\n  \"height\": 300,\r\n  \"urgent\": false,\r\n  \"imageUrl\": null,\r\n  \"primaryFrameType\": \"frameType300\",\r\n  \"secondaryFrameTypes\": [\r\n    \"inboundFrameType400\",\r\n    \"pickingFrameType500\"\r\n  ],\r\n  \"barcodePrefixIdentifier\": null\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://env1.dev.caja.cloud/wms/bins/types/BIN300",
+					"protocol": "https",
+					"host": [
+						"env1",
+						"dev",
+						"caja",
+						"cloud"
+					],
+					"path": [
+						"wms",
+						"bins",
+						"types",
+						"BIN300"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
